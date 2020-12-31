@@ -14,13 +14,22 @@
           <v-img
             contain
             max-height="70%"
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+            src="https://images.unsplash.com/photo-1551150441-649e0b074fe4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
           ></v-img>
         </v-avatar>
 
         <v-toolbar-title class="font-weight-black headline">
-          VUETIFY
+          SIDMAR VEÍCULOS
         </v-toolbar-title>
+        <v-btn plain>
+          <a @click="$vuetify.goTo('#about')">Sobre</a>
+        </v-btn>
+        <v-btn plain>
+          <a @click="$vuetify.goTo('#stock')">Estoque</a>
+        </v-btn>
+        <v-btn plain>
+          <a @click="$vuetify.goTo('#contact')">Contato</a>
+        </v-btn>
       </v-app-bar>
 
       <v-content>
@@ -64,7 +73,7 @@
                       class="align-self-end"
                       fab
                       outlined
-                      @click="$vuetify.goTo('#about-me')"
+                      @click="$vuetify.goTo('#about')"
                     >
                       <v-icon>mdi-chevron-double-down</v-icon>
                     </v-btn>
@@ -75,7 +84,7 @@
           </v-row>
         </section>
 
-        <section id="about-me">
+        <section id="about" ref="about">
           <div class="py-12"></div>
 
           <v-container class="text-center">
@@ -121,7 +130,7 @@
           <div class="py-12"></div>
         </section>
 
-        <section id="stats">
+        <section id="stats" ref="stats">
           <v-parallax
             :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
             src="https://images.unsplash.com/photo-1517994112540-009c47ea476b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1381&q=80"
@@ -151,7 +160,7 @@
           </v-parallax>
         </section>
 
-        <section id="blog">
+        <section id="stock" ref="stock">
           <div class="py-12"></div>
 
           <v-container>
@@ -168,7 +177,7 @@
 
             <v-row>
               <v-col
-                v-for="({ src, text, title }, i) in articles"
+                v-for="({ src, modelo, marca, versao, ano, quilometragem, cor, preco }, i) in articles"
                 :key="i"
                 cols="12"
                 md="4"
@@ -182,13 +191,26 @@
 
                 <h3
                   class="font-weight-black mb-4 text-uppercase"
-                  v-text="title"
-                ></h3>
+                >Modelo: {{modelo}}</h3>
 
                 <div
                   class="title font-weight-light mb-5"
-                  v-text="text"
-                ></div>
+                ><b>Marca: </b>{{marca}}</div>
+                <div
+                  class="title font-weight-light mb-5"
+                ><b>Versão: </b>{{versao}}</div>
+                <div
+                  class="title font-weight-light mb-5"
+                ><b>Ano: </b>{{ano}}</div>
+                <div
+                  class="title font-weight-light mb-5"
+                ><b>Quilometragem: </b>{{quilometragem}}</div>
+                <div
+                  class="title font-weight-light mb-5"
+                ><b>Cor: </b>{{cor}}</div>
+                <div
+                  class="title font-weight-light mb-5"
+                ><b>Preço: </b>{{preco}}</div>
 
                 <v-btn
                   class="ml-n4 font-weight-black"
@@ -202,79 +224,81 @@
 
           <div class="py-12"></div>
         </section>
-
-        <v-sheet
+        <section ref="contact">
+          <v-sheet
           id="contact"
           color="#333333"
           dark
           tag="section"
           tile
-        >
-          <div class="py-12"></div>
+          >
+            <div class="py-12"></div>
 
-          <v-container>
-            <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">ENTRE EM CONTATO</h2>
+            <v-container>
+              <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">ENTRE EM CONTATO</h2>
 
-            <v-responsive
-              class="mx-auto mb-12"
-              width="56"
-            >
-              <v-divider class="mb-1"></v-divider>
+              <v-responsive
+                class="mx-auto mb-12"
+                width="56"
+              >
+                <v-divider class="mb-1"></v-divider>
 
-              <v-divider></v-divider>
-            </v-responsive>
+                <v-divider></v-divider>
+              </v-responsive>
 
-            <v-theme-provider light>
-              <v-row>
-                <v-col cols="12">
-                  <v-text-field
-                    flat
-                    label="Nome*"
-                    solo
-                  ></v-text-field>
-                </v-col>
+              <v-theme-provider light>
+                <v-row>
+                  <v-col cols="12">
+                    <v-text-field
+                      flat
+                      label="Nome*"
+                      solo
+                    ></v-text-field>
+                  </v-col>
 
-                <v-col cols="12">
-                  <v-text-field
-                    flat
-                    label="Email*"
-                    solo
-                  ></v-text-field>
-                </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      flat
+                      label="Email*"
+                      solo
+                    ></v-text-field>
+                  </v-col>
 
-                <v-col cols="12">
-                  <v-text-field
-                    flat
-                    label="Assunto*"
-                    solo
-                  ></v-text-field>
-                </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      flat
+                      label="Assunto*"
+                      solo
+                    ></v-text-field>
+                  </v-col>
 
-                <v-col cols="12">
-                  <v-textarea
-                    flat
-                    label="Mensagem*"
-                    solo
-                  ></v-textarea>
-                </v-col>
+                  <v-col cols="12">
+                    <v-textarea
+                      flat
+                      label="Mensagem*"
+                      solo
+                    ></v-textarea>
+                  </v-col>
 
-                <v-col
-                  class="mx-auto"
-                  cols="auto"
-                >
-                  <v-btn
-                    color="accent"
-                    x-large
+                  <v-col
+                    class="mx-auto"
+                    cols="auto"
                   >
-                    Submit
-                  </v-btn>
-                </v-col>
-              </v-row>
-            </v-theme-provider>
-          </v-container>
+                    <v-btn
+                      color="accent"
+                      x-large
+                    >
+                      ENVIAR
+                    </v-btn>
+                  </v-col>
+                </v-row>
+              </v-theme-provider>
+            </v-container>
 
-          <div class="py-12"></div>
-        </v-sheet>
+            <div class="py-12"></div>
+          </v-sheet>
+        </section>
+        
       </v-content>
 
       <v-footer
@@ -283,7 +307,7 @@
         height="100"
       >
         <div class="title font-weight-light grey--text text--lighten-1 text-center">
-          &copy; {{ (new Date()).getFullYear() }} — Vuetify, LLC — Made with 💜 by John Leider
+          &copy; {{ (new Date()).getFullYear() }}
         </div>
       </v-footer>
     </v-app>
@@ -297,49 +321,77 @@ export default {
     return {
       articles: [
         {
-          src: 'https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-          title: 'Onix 2016',
-          text: 'Phasellus lorem enim, luctus ut velit eget, convallis egestas eros. Sed ornare ligula eget tortor tempor, quis porta tellus dictum.',
+          src: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
+          marca: 'Chevrolet',
+          modelo: 'Onix 2016',
+          versao: 'LTZ',
+          ano: '2014',
+          quilometragem: '10.000km',
+          preco: 'R$30.000',
+          cor: 'Preto'
         },
         {
-          src: 'https://images.unsplash.com/photo-1475938476802-32a7e851dad1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-          title: 'Think outside the box',
-          text: 'Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh.',
+          src: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
+          marca: 'Chevrolet',
+          modelo: 'Onix 2016',
+          versao: 'LTZ',
+          ano: '2014',
+          quilometragem: '10.000km',
+          preco: 'R$30.000',
+          cor: 'Preto'
         },
         {
-          src: 'https://images.unsplash.com/photo-1416339442236-8ceb164046f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1892&q=80',
-          title: 'Small changes, big difference',
-          text: 'Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.',
-        },
-      ],
-      features: [
-        {
-          icon: 'mdi-account-group-outline',
-          title: 'Vibrant Community',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+          src: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
+          marca: 'Chevrolet',
+          modelo: 'Onix 2016',
+          versao: 'LTZ',
+          ano: '2014',
+          quilometragem: '10.000km',
+          preco: 'R$30.000',
+          cor: 'Preto'
         },
         {
-          icon: 'mdi-update',
-          title: 'Frequent Updates',
-          text: 'Sed ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
+          src: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
+          marca: 'Chevrolet',
+          modelo: 'Onix 2016',
+          versao: 'LTZ',
+          ano: '2014',
+          quilometragem: '10.000km',
+          preco: 'R$30.000',
+          cor: 'Preto'
         },
         {
-          icon: 'mdi-shield-outline',
-          title: 'Long-term Support',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+          src: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
+          marca: 'Chevrolet',
+          modelo: 'Onix 2016',
+          versao: 'LTZ',
+          ano: '2014',
+          quilometragem: '10.000km',
+          preco: 'R$30.000',
+          cor: 'Preto'
         },
       ],
       stats: [
         ['15 anos', 'De mercado'],
         ['+200', 'Clientes'],
-        ['1m', 'Downloads/mo'],
-        ['5m', 'Total Downloads'],
+        ['+10', 'Marcas'],
+        ['Recebemos', 'Seu carro na troca'],
       ],
+    }
+  },
+  methods: {
+    scrollMeTo(refName) {
+      var element = this.$refs[refName];
+      var top = element.offsetTop;
+
+      window.scrollTo(0, top);
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-
+.v-main.v-content {
+  padding: 0px;
+}
 </style>
