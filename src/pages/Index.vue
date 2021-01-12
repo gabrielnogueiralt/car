@@ -1,7 +1,6 @@
 <template>
-  <div id="app">
-    <v-app>
-      <v-app-bar
+  <div>
+    <v-app-bar
         app
         color="white"
         height="100"
@@ -19,7 +18,7 @@
         </v-avatar>
 
         <v-toolbar-title class="font-weight-black headline">
-          SIDMAR VEÍCULOS
+          SID VEÍCULOS
         </v-toolbar-title>
         <v-btn plain>
           <a @click="$vuetify.goTo('#about')">Sobre</a>
@@ -310,88 +309,56 @@
           &copy; {{ (new Date()).getFullYear() }}
         </div>
       </v-footer>
-    </v-app>
-  </div>  
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'Index',
-  data () {
-    return {
-      articles: [
-        {
-          src: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
-          marca: 'Chevrolet',
-          modelo: 'Onix 2016',
-          versao: 'LTZ',
-          ano: '2014',
-          quilometragem: '10.000km',
-          preco: 'R$30.000',
-          cor: 'Preto'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
-          marca: 'Chevrolet',
-          modelo: 'Onix 2016',
-          versao: 'LTZ',
-          ano: '2014',
-          quilometragem: '10.000km',
-          preco: 'R$30.000',
-          cor: 'Preto'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
-          marca: 'Chevrolet',
-          modelo: 'Onix 2016',
-          versao: 'LTZ',
-          ano: '2014',
-          quilometragem: '10.000km',
-          preco: 'R$30.000',
-          cor: 'Preto'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
-          marca: 'Chevrolet',
-          modelo: 'Onix 2016',
-          versao: 'LTZ',
-          ano: '2014',
-          quilometragem: '10.000km',
-          preco: 'R$30.000',
-          cor: 'Preto'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
-          marca: 'Chevrolet',
-          modelo: 'Onix 2016',
-          versao: 'LTZ',
-          ano: '2014',
-          quilometragem: '10.000km',
-          preco: 'R$30.000',
-          cor: 'Preto'
-        },
-      ],
-      stats: [
-        ['15 anos', 'De mercado'],
-        ['+200', 'Clientes'],
-        ['+10', 'Marcas'],
-        ['Recebemos', 'Seu carro na troca'],
-      ],
-    }
-  },
-  methods: {
-    scrollMeTo(refName) {
-      var element = this.$refs[refName];
-      var top = element.offsetTop;
+  export default {
+    name: 'Index',
 
-      window.scrollTo(0, top);
+    data () {
+      return {
+        articles: [
+          {
+            src: 'https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+            title: 'Mobile first & Responsive',
+            text: 'Phasellus lorem enim, luctus ut velit eget, convallis egestas eros. Sed ornare ligula eget tortor tempor, quis porta tellus dictum.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1475938476802-32a7e851dad1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+            title: 'Think outside the box',
+            text: 'Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1416339442236-8ceb164046f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1892&q=80',
+            title: 'Small changes, big difference',
+            text: 'Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.',
+          },
+        ],
+        features: [
+          {
+            icon: 'mdi-account-group-outline',
+            title: 'Vibrant Community',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+          },
+          {
+            icon: 'mdi-update',
+            title: 'Frequent Updates',
+            text: 'Sed ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
+          },
+          {
+            icon: 'mdi-shield-outline',
+            title: 'Long-term Support',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+          },
+        ],
+        stats: [
+          ['24k', 'Github Stars'],
+          ['330+', 'Releases'],
+          ['1m', 'Downloads/mo'],
+          ['5m', 'Total Downloads'],
+        ],
+      }
     }
   }
-}
 </script>
-
-<style scoped lang="scss">
-.v-main.v-content {
-  padding: 0px;
-}
-</style>

@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "firebase": "^8.2.1",
     "vue": "^2.6.11",
     "vuetify": "^2.2.11"
   },
